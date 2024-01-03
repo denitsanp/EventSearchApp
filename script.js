@@ -34,7 +34,7 @@ eventCloseBtn.addEventListener('click', () => {
 function getEventList() { 
     let searchInputTxt = document.getElementById('search-input').value.trim();
     if (searchInputTxt === '') {
-        alert("Please enter an event.");
+        alert("You should enter an event.");
         return;
     }
     fetchSeatGeekData(searchInputTxt)
