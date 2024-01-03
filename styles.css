@@ -38,7 +38,7 @@ body{
     text-align: center;
 }
 .event-search{
-    background: url('../events-banner.png') no-repeat center center;
+    background: url('/events-banner.png') no-repeat center center;
     background-size: cover;
     position: relative; 
     height: 900px;
