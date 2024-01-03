@@ -38,7 +38,7 @@ body{
     text-align: center;
 }
 .event-search{
-    background: url('/Users/denitsanikolaeva/Desktop/Uni/JS/Event Search App/events-banner.png') no-repeat center center;
+    background: url('../events-banner.png') no-repeat center center;
     background-size: cover;
     position: relative; 
     height: 900px;
@@ -112,7 +112,6 @@ small {
     overflow: hidden;
     box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.79);
     margin: 2rem 0;
-    /* height: 550px;  */
     position: relative;
 }
 .event-img img{
