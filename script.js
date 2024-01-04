@@ -38,12 +38,11 @@ function getEventList() {
         return;
     }
     fetchSeatGeekData(searchInputTxt)
-        .then(data => { 
+        .then(data => {
             let html = "";
-            if (data && data.events && data.events.length > 0) { 
+            if (data && data.events && data.events.length > 0) {
                 data.events.forEach(event => {
-                    const eventDate = new Date(event.datetime_local).toLocaleDateString("en-US", 
-                    { year: 'numeric', month: 'long', day: 'numeric' });
+                    const eventDate = new Date(event.datetime_local).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
 
                     let eventPrice = 'Price not available';
                     if (event.stats.lowest_price) {
@@ -65,7 +64,8 @@ function getEventList() {
                     </div>
                 `;
                 });
-                eventList.classList.remove('notFound'); 
+                eventList.classList.remove('notFound');
+            } else {
                 html = "Sorry, we didn't find any events!";
                 eventList.classList.add('notFound');
             }
