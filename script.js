@@ -38,11 +38,12 @@ function getEventList() {
         return;
     }
     fetchSeatGeekData(searchInputTxt)
-        .then(data => {
+        .then(data => { 
             let html = "";
-            if (data && data.events && data.events.length > 0) {
+            if (data && data.events && data.events.length > 0) { 
                 data.events.forEach(event => {
-                    const eventDate = new Date(event.datetime_local).toLocaleDateString("en-US", { year: 'numeric', month: 'long', day: 'numeric' });
+                    const eventDate = new Date(event.datetime_local).toLocaleDateString("en-US", 
+                    { year: 'numeric', month: 'long', day: 'numeric' });
 
                     let eventPrice = 'Price not available';
                     if (event.stats.lowest_price) {
@@ -64,8 +65,7 @@ function getEventList() {
                     </div>
                 `;
                 });
-                eventList.classList.remove('notFound');
-            } else {
+                eventList.classList.remove('notFound'); 
                 html = "Sorry, we didn't find any events!";
                 eventList.classList.add('notFound');
             }
@@ -73,25 +73,25 @@ function getEventList() {
         });
 }
 
-function getEventDetails(e) { 
-    e.preventDefault(); 
-    if (e.target.classList.contains('event-btn')) {
-        let eventItem = e.target.parentElement.parentElement;
-        const eventId = eventItem.dataset.id;
-        fetchSeatGeekData(eventId, true)
-            .then(data => {
-                console.log("API Response:", data);
-                if (data) {
-                    eventEventModal(data);
-                } else {
-                    console.error('Event details not found');
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching event details:", error);
-            });
-    }
-}
+// function getEventDetails(e) { 
+//     e.preventDefault(); 
+//     if (e.target.classList.contains('event-btn')) {
+//         let eventItem = e.target.parentElement.parentElement;
+//         const eventId = eventItem.dataset.id;
+//         fetchSeatGeekData(eventId, true)
+//             .then(data => {
+//                 console.log("API Response:", data);
+//                 if (data) {
+//                     eventEventModal(data);
+//                 } else {
+//                     console.error('Event details not found');
+//                 }
+//             })
+//             .catch(error => {
+//                 console.error("Error fetching event details:", error);
+//             });
+//     }
+// }
 
 function eventEventModal(event) { 
     const eventDateTime = new Date(event.datetime_local).toLocaleString("en-US", { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
