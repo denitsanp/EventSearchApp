@@ -73,25 +73,25 @@ function getEventList() {
         });
 }
 
-// function getEventDetails(e) { 
-//     e.preventDefault(); 
-//     if (e.target.classList.contains('event-btn')) {
-//         let eventItem = e.target.parentElement.parentElement;
-//         const eventId = eventItem.dataset.id;
-//         fetchSeatGeekData(eventId, true)
-//             .then(data => {
-//                 console.log("API Response:", data);
-//                 if (data) {
-//                     eventEventModal(data);
-//                 } else {
-//                     console.error('Event details not found');
-//                 }
-//             })
-//             .catch(error => {
-//                 console.error("Error fetching event details:", error);
-//             });
-//     }
-// }
+function getEventDetails(e) { 
+    e.preventDefault(); 
+    if (e.target.classList.contains('event-btn')) {
+        let eventItem = e.target.parentElement.parentElement;
+        const eventId = eventItem.dataset.id;
+        fetchSeatGeekData(eventId, true)
+            .then(data => {
+                console.log("API Response:", data);
+                if (data) {
+                    eventEventModal(data);
+                } else {
+                    console.error('Event details not found');
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching event details:", error);
+            });
+    }
+}
 
 function eventEventModal(event) { 
     const eventDateTime = new Date(event.datetime_local).toLocaleString("en-US", { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
