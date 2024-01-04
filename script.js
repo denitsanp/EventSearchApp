@@ -8,16 +8,16 @@ function fetchSeatGeekData(query, isEventId = false) {
         url = `https://api.seatgeek.com/2/events?q=${query}&client_id=${seatGeekClientId}`;
     }
 
-    return fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .catch(error => {
-            console.error("Network error:", error);
-        });
+    // return fetch(url)
+    //     .then(response => {
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! Status: ${response.status}`);
+    //         }
+    //         return response.json();
+    //     })
+    //     .catch(error => {
+    //         console.error("Network error:", error);
+    //     });
 }
 
 const searchBtn = document.getElementById('search-btn'); 
@@ -76,7 +76,7 @@ function getEventList() {
 function getEventDetails(e) { 
     e.preventDefault(); 
     if (e.target.classList.contains('event-btn')) {
-        let eventItem = e.target.parentElement.parentElement;
+        let eventItem = e.target.parentElement.parentElement; 
         const eventId = eventItem.dataset.id;
         fetchSeatGeekData(eventId, true)
             .then(data => {
@@ -129,6 +129,6 @@ function eventModal(event) {
             <a href="${event.url || '#'}" class="event-btn" target="_blank">Save your spot</a>
         </div>
     `;
-    eventDetailsContent.innerHTML = html;
-    eventDetailsContent.parentElement.classList.add('showEvent');
+    eventDetailsContent.innerHTML = html; 
+    eventDetailsContent.parentElement.classList.add('showEvent'); 
 }
