@@ -95,11 +95,8 @@ function getEventDetails(e) {
 
 function eventModal(event) { 
 
-    let eventImage = event.performers && event.performers[0] && event.performers[0].image 
-    ? `<img src="${event.performers[0].image}" alt="Event Image" style="max-width: 100%;">` : '<p>No image available</p>';
-
     const eventDateTime = new Date(event.datetime_local).toLocaleString("en-US", 
-    { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }); 
 
     let venueDetails = event.venue ? `<p><strong>Location:</strong> ${event.venue.name}, 
     ${event.venue.address}, ${event.venue.city}, ${event.venue.state}</p>` : '<p>Venue details not available</p>';
@@ -111,8 +108,8 @@ function eventModal(event) {
     }
 
     let html = `
-        <h2 class="event-title">${event.title || 'Event Title Not Available'}</h2>
-        ${eventImage}
+        <h2 class="event-title">${event.title}</h2>
+        <img src="${event.performers[0].image}" alt="Event Image"> 
         <p><strong>Date and Time:</strong> ${eventDateTime}</p>
         ${venueDetails}
         <p><strong>Performers:</strong> ${event.performers.map(performer => performer.name).join(', ')}</p>
