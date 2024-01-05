@@ -42,7 +42,7 @@ body{
     background-size: cover;
     position: relative; 
     height: 900px;
-    padding: 200px; 
+    padding: 200px 0; 
     color: white; 
 }
 small {
@@ -304,12 +304,17 @@ small {
 }
 @media screen and (min-width: 1200px){
     .event-search-box{
-        margin:1.5rem 15rem;
+        margin:1.5rem 25rem;
     }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
     .event-search-box {
         margin: 1.5rem 10rem;
+    }
+}
+@media screen and (max-width: 991px){
+    .event-search-box, .title{
+        padding: 0 3rem;
     }
 }
