@@ -2,9 +2,9 @@ const seatGeekClientId = 'MzkwNzkxODN8MTcwMzMyNDg3Ni4zMDQzNTE4';
 
 function fetchSeatGeekData(query, isEventId = false) { 
     let url;
-    if (isEventId) {
+    if (isEventId) {  
         url = `https://api.seatgeek.com/2/events/${query}?client_id=${seatGeekClientId}`;
-    } else {
+    } else { 
         url = `https://api.seatgeek.com/2/events?q=${query}&client_id=${seatGeekClientId}`;
     }
 
@@ -64,7 +64,7 @@ function getEventList() {
                     </div>
                 `;
                 });
-                eventList.classList.remove('notFound');
+                eventList.classList.remove('notFound'); 
             } else {
                 html = "Sorry, we didn't find any events!";
                 eventList.classList.add('notFound');
